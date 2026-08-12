@@ -14,6 +14,18 @@ public sealed class ShipCameraFollow : MonoBehaviour
     [SerializeField, Min(0.1f)]
     private float cameraDistance = 15f;
 
+    [SerializeField, Min(0.1f)]
+    private float minimumDistance = 5f;
+
+    [SerializeField, Min(0.1f)]
+    private float maximumDistance = 30f;
+
+    [SerializeField, Min(0f)]
+    private float zoomSensitivity = 0.015f;
+
+    [SerializeField, Min(0.01f)]
+    private float zoomSmoothTime = 0.08f;
+
     [SerializeField, Min(0.01f)]
     private float positionSmoothTime = 0.05f;
 
@@ -54,6 +66,11 @@ public sealed class ShipCameraFollow : MonoBehaviour
     private float orbitYaw;
     private float orbitPitch;
 
+    private float currentDistance;
+    private float targetDistance;
+
+    private float zoomVelocity;
+
     private Vector3 positionVelocity;
 
     private bool wasFreeLooking;
@@ -61,8 +78,17 @@ public sealed class ShipCameraFollow : MonoBehaviour
 
     private void Start()
     {
-        orbitPitch =
-            startingPitch;
+        orbitPitch = startingPitch;
+
+        cameraDistance =
+            Mathf.Clamp(
+                cameraDistance,
+                minimumDistance,
+                maximumDistance
+            );
+
+        currentDistance = cameraDistance;
+        targetDistance = cameraDistance;
     }
 
 
@@ -73,15 +99,14 @@ public sealed class ShipCameraFollow : MonoBehaviour
             return;
         }
 
-
         bool freeLook =
             Mouse.current != null &&
             Mouse.current.rightButton.isPressed;
 
 
-        HandleMouseState(
-            freeLook
-        );
+        HandleMouseState(freeLook);
+
+        HandleZoom();
 
 
         if (freeLook)
@@ -94,13 +119,13 @@ public sealed class ShipCameraFollow : MonoBehaviour
         }
 
 
+        UpdateZoom();
+
         UpdateCameraPosition();
     }
 
 
-    private void HandleMouseState(
-        bool freeLook
-    )
+    private void HandleMouseState(bool freeLook)
     {
         if (freeLook &&
             !wasFreeLooking)
@@ -108,8 +133,7 @@ public sealed class ShipCameraFollow : MonoBehaviour
             Cursor.lockState =
                 CursorLockMode.Locked;
 
-            Cursor.visible =
-                false;
+            Cursor.visible = false;
         }
 
 
@@ -119,18 +143,22 @@ public sealed class ShipCameraFollow : MonoBehaviour
             Cursor.lockState =
                 CursorLockMode.None;
 
-            Cursor.visible =
-                true;
+            Cursor.visible = true;
         }
 
 
-        wasFreeLooking =
-            freeLook;
+        wasFreeLooking = freeLook;
     }
 
 
     private void ReadCameraInput()
     {
+        if (Mouse.current == null)
+        {
+            return;
+        }
+
+
         Vector2 mouseDelta =
             Mouse.current.delta.ReadValue();
 
@@ -150,6 +178,50 @@ public sealed class ShipCameraFollow : MonoBehaviour
                 orbitPitch,
                 minimumPitch,
                 maximumPitch
+            );
+    }
+
+
+    private void HandleZoom()
+    {
+        if (Mouse.current == null)
+        {
+            return;
+        }
+
+
+        float scroll =
+            Mouse.current.scroll.ReadValue().y;
+
+
+        if (Mathf.Abs(scroll) < 0.01f)
+        {
+            return;
+        }
+
+
+        targetDistance -=
+            scroll *
+            zoomSensitivity;
+
+
+        targetDistance =
+            Mathf.Clamp(
+                targetDistance,
+                minimumDistance,
+                maximumDistance
+            );
+    }
+
+
+    private void UpdateZoom()
+    {
+        currentDistance =
+            Mathf.SmoothDamp(
+                currentDistance,
+                targetDistance,
+                ref zoomVelocity,
+                zoomSmoothTime
             );
     }
 
@@ -192,7 +264,7 @@ public sealed class ShipCameraFollow : MonoBehaviour
             -
             orbitRotation *
             Vector3.forward *
-            cameraDistance;
+            currentDistance;
 
 
         transform.position =
@@ -239,7 +311,6 @@ public sealed class ShipCameraFollow : MonoBehaviour
         Cursor.lockState =
             CursorLockMode.None;
 
-        Cursor.visible =
-            true;
+        Cursor.visible = true;
     }
 }

@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796146922335825463}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.009, y: -0.14, z: -1.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4425263133066658155}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!65 &4690435981658256890
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -499,13 +499,13 @@ MonoBehaviour:
   firePoint: {fileID: 2710016475796000735}
   rangeReticle: {fileID: 1793236808085524519}
   aimCamera: {fileID: 0}
-  bodyTurnSpeed: 35
+  bodyTurnSpeed: 15
   canonsTurnSpeed: 25
   maxPitchAngle: 45
   weaponRange: 450
   showDebugRay: 1
-  reticleScalePerDistance: 0.008
-  minimumReticleScale: 0.5
+  reticleScalePerDistance: 0.1
+  minimumReticleScale: 0.1
 --- !u!1 &8320983955827016573
 GameObject:
   m_ObjectHideFlags: 0
