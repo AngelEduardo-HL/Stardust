@@ -60,12 +60,12 @@ public sealed class ShipSpeedHUD : MonoBehaviour
             ))
         {
             speedText.text =
-                $"VELOCIDAD: {speed:0.0}";
+                $"KM: {speed:0.0}";
         }
         else
         {
             speedText.text =
-                $"VELOCIDAD: {speed:0.0} {unitText}";
+                $"KM: {speed:0.0} {unitText}";
         }
     }
 }

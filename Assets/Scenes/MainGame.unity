@@ -604,6 +604,7 @@ GameObject:
   - component: {fileID: 1516968476}
   - component: {fileID: 1516968475}
   - component: {fileID: 1516968477}
+  - component: {fileID: 1516968478}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -681,6 +682,26 @@ MonoBehaviour:
   roll360TurnTime: 25
   currentForwardSpeed: 0
   currentVerticalSpeed: 0
+--- !u!114 &1516968478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516968474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f19f8702ab12b45b92faa7e2b93c06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThrusterGlowController
+  shipRigidbody: {fileID: 1516968475}
+  thrusterRenderers:
+  - {fileID: 5291218122063883475}
+  maximumSpeed: 10
+  emissionColor: {r: 0, g: 1, b: 1, a: 1}
+  minimumIntensity: 0.2
+  maximumIntensity: 8
+  intensityChangeSpeed: 4
 --- !u!1 &1743306259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,6 +1063,11 @@ MonoBehaviour:
   showSignedSpeed: 1
   speedMultiplier: 1
   unitText: 
+--- !u!23 &5291218122063883475 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3378719437540892478, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
+  m_PrefabInstance: {fileID: 7461815545565754349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6251987562465077846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3552834485333203387, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
