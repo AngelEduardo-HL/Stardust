@@ -35,6 +35,24 @@ public sealed class TurretAimController : MonoBehaviour
     [SerializeField, Range(0f, 89f)]
     private float maxPitchAngle = 45f;
 
+    [Header("Disparo")]
+    [Tooltip("Tiempo en segundos entre cada disparo.")]
+    [SerializeField, Min(0.01f)]
+    private float shotCooldown = 0.35f;
+
+    [Tooltip("Tiempo que el rayo cambia de color al disparar.")]
+    [SerializeField, Min(0.01f)]
+    private float shotFlashDuration = 0.08f;
+
+    [SerializeField]
+    private Color normalRayColor = Color.cyan;
+
+    [SerializeField]
+    private Color firingRayColor = Color.red;
+
+    private float nextShotTime;
+    private float fireFlashUntil;
+
 
     [Header("Alcance")]
 
@@ -54,7 +72,7 @@ public sealed class TurretAimController : MonoBehaviour
     [SerializeField, Min(0.01f)]
     private float minimumReticleScale = 0.15f;
 
-
+    
     private Quaternion bodyStartRotation;
     private Quaternion canonsStartRotation;
 
@@ -139,6 +157,8 @@ public sealed class TurretAimController : MonoBehaviour
         RotateBody(aimPoint);
 
         RotateCanons(aimPoint);
+
+        HandleFire();
 
         UpdateRangeReticle();
     }
@@ -403,36 +423,27 @@ public sealed class TurretAimController : MonoBehaviour
             weaponRange;
 
 
-        if (rangeReticle != null)
+        if (showDebugRay)
         {
-            rangeReticle.position =
-                rayEnd;
+            Color currentRayColor;
 
+            if (Time.time < fireFlashUntil)
+            {
+                currentRayColor =
+                    firingRayColor;
+            }
+            else
+            {
+                currentRayColor =
+                    normalRayColor;
+            }
 
-            // La reticula siempre mira
-            // en la misma orientacion
-            // que la camara.
-            rangeReticle.rotation =
-                aimCamera.transform.rotation;
+            Debug.DrawLine(
+                firePoint.position,
+                rayEnd,
+                currentRayColor
+            );
 
-
-            float distanceToCamera =
-                Vector3.Distance(
-                    aimCamera.transform.position,
-                    rayEnd
-                );
-
-
-            float scale =
-                Mathf.Max(
-                    minimumReticleScale,
-                    distanceToCamera *
-                    reticleScalePerDistance
-                );
-
-
-            rangeReticle.localScale =
-                Vector3.one * scale;
         }
 
 
@@ -444,5 +455,42 @@ public sealed class TurretAimController : MonoBehaviour
                 Color.cyan
             );
         }
+    }
+
+    private void HandleFire()
+    {
+        if (Mouse.current == null)
+        {
+            return;
+        }
+
+        // Disparo automático mientras
+        // se mantenga click izquierdo.
+        if (!Mouse.current.leftButton.isPressed)
+        {
+            return;
+        }
+
+        // La torreta sigue en cooldown.
+        if (Time.time < nextShotTime)
+        {
+            return;
+        }
+
+        Fire();
+
+        nextShotTime =
+            Time.time + shotCooldown;
+    }
+
+
+    private void Fire()
+    {
+        // Por ahora el disparo solamente
+        // cambia temporalmente el color
+        // del raycast de debug.
+
+        fireFlashUntil =
+            Time.time + shotFlashDuration;
     }
 }
