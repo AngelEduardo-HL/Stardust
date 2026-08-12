@@ -1132,10 +1132,6 @@ PrefabInstance:
       propertyPath: aimCamera
       value: 
       objectReference: {fileID: 330585545}
-    - target: {fileID: 6314807185505030308, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
-      propertyPath: bodyTurnSpeed
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 6697033866616713714, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
       propertyPath: aimCamera
       value: 

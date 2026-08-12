@@ -502,6 +502,10 @@ MonoBehaviour:
   bodyTurnSpeed: 15
   canonsTurnSpeed: 25
   maxPitchAngle: 45
+  shotCooldown: 1.5
+  shotFlashDuration: 0.08
+  normalRayColor: {r: 0, g: 1, b: 0.109803915, a: 1}
+  firingRayColor: {r: 1, g: 0, b: 0, a: 1}
   weaponRange: 450
   showDebugRay: 1
   reticleScalePerDistance: 0.1

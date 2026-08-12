@@ -422,10 +422,41 @@ public sealed class TurretAimController : MonoBehaviour
             firePoint.forward *
             weaponRange;
 
+        if (rangeReticle != null)
+        {
+            rangeReticle.position =
+                rayEnd;
+
+
+            // Hace que el sprite mire
+            // siempre hacia la camara.
+            rangeReticle.rotation =
+                aimCamera.transform.rotation;
+
+
+            float distanceToCamera =
+                Vector3.Distance(
+                    aimCamera.transform.position,
+                    rayEnd
+                );
+
+
+            float scale =
+                Mathf.Max(
+                    minimumReticleScale,
+                    distanceToCamera *
+                    reticleScalePerDistance
+                );
+
+
+            rangeReticle.localScale =
+                Vector3.one * scale;
+        }
 
         if (showDebugRay)
         {
             Color currentRayColor;
+
 
             if (Time.time < fireFlashUntil)
             {
@@ -442,17 +473,6 @@ public sealed class TurretAimController : MonoBehaviour
                 firePoint.position,
                 rayEnd,
                 currentRayColor
-            );
-
-        }
-
-
-        if (showDebugRay)
-        {
-            Debug.DrawLine(
-                firePoint.position,
-                rayEnd,
-                Color.cyan
             );
         }
     }
