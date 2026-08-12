@@ -37,8 +37,9 @@ public sealed class TurretAimController : MonoBehaviour
 
     [Header("Alcance")]
 
-    [SerializeField, Min(1f)]
-    private float weaponRange = 300f;
+    [Min(1f)]
+    public float weaponRange = 300f;
+    public float WeaponRange => weaponRange;
 
     [SerializeField]
     private bool showDebugRay = true;
