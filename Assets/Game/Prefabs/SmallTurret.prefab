@@ -160,16 +160,16 @@ MonoBehaviour:
   aimController: {fileID: 3151324700351754769}
   firePoint: {fileID: 1035199466605817855}
   projectilePrefab: {fileID: 688279670955816988, guid: 97ba4cdf560afc14898ac5b11dcd8fc3, type: 3}
-  projectileDamage: 150
+  projectileDamage: 112
   projectileSpeed: 250
   projectileSize: 1
   spawnOffset: 0.1
   projectileHitMask:
     serializedVersion: 2
     m_Bits: 8
-  minimumShotCooldown: 0.35
-  maximumShotCooldown: 0.75
-  initialFireSpread: 0.8
+  minimumShotCooldown: 0.72
+  maximumShotCooldown: 0.79
+  initialFireSpread: 1.25
 --- !u!1 &4302513106270963265
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5221820348807214552, guid: 2692d95471f9e9546a184fd16227d7ab, type: 3}
+  - {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -483,7 +483,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5547989413726595352, guid: 2692d95471f9e9546a184fd16227d7ab, type: 3}
+  - {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -573,7 +573,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4580295102924920689, guid: 2692d95471f9e9546a184fd16227d7ab, type: 3}
+  - {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

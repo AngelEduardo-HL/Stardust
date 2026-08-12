@@ -243,7 +243,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4580295102924920689, guid: 2692d95471f9e9546a184fd16227d7ab, type: 3}
+  - {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -333,7 +333,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5221820348807214552, guid: 2692d95471f9e9546a184fd16227d7ab, type: 3}
+  - {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -423,7 +423,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5547989413726595352, guid: 2692d95471f9e9546a184fd16227d7ab, type: 3}
+  - {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -529,9 +529,9 @@ MonoBehaviour:
   projectileHitMask:
     serializedVersion: 2
     m_Bits: 8
-  minimumShotCooldown: 1
-  maximumShotCooldown: 1.5
-  initialFireSpread: 0.12
+  minimumShotCooldown: 1.19
+  maximumShotCooldown: 1.32
+  initialFireSpread: 0.25
 --- !u!1 &8320983955827016573
 GameObject:
   m_ObjectHideFlags: 0

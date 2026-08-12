@@ -397,12 +397,62 @@ public sealed class TurretAimController : MonoBehaviour
 
     private void UpdateRangeReticle()
     {
+        // Punto exacto hasta donde realmente
+        // está apuntando la torreta.
+        Vector3 rayEnd =
+            firePoint.position +
+            firePoint.forward *
+            weaponRange;
+
+
+        // -------------------------
+        // RETICULA
+        // -------------------------
+
+        if (rangeReticle != null)
+        {
+            // La reticula se coloca al final
+            // del alcance REAL de la torreta.
+            rangeReticle.position =
+                rayEnd;
+
+
+            // Siempre mira hacia la camara.
+            rangeReticle.rotation =
+                aimCamera.transform.rotation;
+
+
+            // Mantiene un tamaño visible
+            // aunque esté muy lejos.
+            float distanceToCamera =
+                Vector3.Distance(
+                    aimCamera.transform.position,
+                    rayEnd
+                );
+
+
+            float scale =
+                Mathf.Max(
+                    minimumReticleScale,
+                    distanceToCamera *
+                    reticleScalePerDistance
+                );
+
+
+            rangeReticle.localScale =
+                Vector3.one * scale;
+        }
+
+
+        // -------------------------
+        // RAY DE DEBUG
+        // -------------------------
+
         if (showDebugRay)
         {
-            Vector3 aimPoint = GetCursorAimPoint();
             Debug.DrawLine(
                 firePoint.position,
-                aimPoint,
+                rayEnd,
                 Color.cyan
             );
         }

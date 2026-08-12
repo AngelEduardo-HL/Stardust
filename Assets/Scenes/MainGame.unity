@@ -421,7 +421,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -587,7 +587,7 @@ Transform:
   m_GameObject: {fileID: 1086947909}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.47247735, y: 0, z: 2.9043622}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -652,7 +652,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1086947910}
-  - {fileID: 6445033181803390378}
+  - {fileID: 6251987562465077846}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1516968477
@@ -667,18 +667,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0c9db26a527dd44b5441a27f64c7ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerShipController
-  maximumForwardSpeed: 8
-  timeToMaximumForwardSpeed: 5
-  forwardBrakeTime: 5
+  maximumForwardSpeed: 11
+  timeToMaximumForwardSpeed: 3
+  forwardBrakeTime: 3
   maximumReverseSpeed: 3
   timeToMaximumReverseSpeed: 2
   reverseStopTime: 0.75
   maximumVerticalSpeed: 1
   verticalAccelerationTime: 1
   verticalStopTime: 0.5
-  yaw180TurnTime: 8
-  pitch180TurnTime: 8
-  roll360TurnTime: 8
+  yaw180TurnTime: 25
+  pitch180TurnTime: 25
+  roll360TurnTime: 25
   currentForwardSpeed: 0
   currentVerticalSpeed: 0
 --- !u!1 &1743306259
@@ -806,7 +806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86708484e315d0c41ad0df396c904e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthController
-  maxHealth: 1000
+  maxHealth: 17500
   currentHealth: 0
 --- !u!1 &1774707838
 GameObject:
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   showSignedSpeed: 1
   speedMultiplier: 1
   unitText: 
---- !u!4 &6445033181803390378 stripped
+--- !u!4 &6251987562465077846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3552834485333203387, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
   m_PrefabInstance: {fileID: 7461815545565754349}
@@ -1055,10 +1055,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1516968476}
     m_Modifications:
+    - target: {fileID: 659769515412668135, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
+    - target: {fileID: 695583926606177929, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
+    - target: {fileID: 991658644443784301, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
+    - target: {fileID: 1189745590336914505, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
     - target: {fileID: 1288231468083667304, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
       propertyPath: aimCamera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 1773466630877639594, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
     - target: {fileID: 2051923912902622349, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
       propertyPath: m_LocalRotation.w
       value: -1
@@ -1071,10 +1091,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 360
       objectReference: {fileID: 0}
+    - target: {fileID: 2125561664520081249, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 12ee301cfd1eb7a4b8857664bd3e156d, type: 2}
     - target: {fileID: 2236139396613136838, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
       propertyPath: aimCamera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 2636553498904543589, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 12ee301cfd1eb7a4b8857664bd3e156d, type: 2}
+    - target: {fileID: 2741305116568120022, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
+    - target: {fileID: 2755975179568434042, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
     - target: {fileID: 2852998051755471609, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
       propertyPath: m_Name
       value: Arquitems Ship
@@ -1091,6 +1127,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 360
       objectReference: {fileID: 0}
+    - target: {fileID: 3378719437540892478, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6fad16f0d1be9594ca1f2b5400432612, type: 2}
     - target: {fileID: 3499002148432938780, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.7071048
@@ -1179,6 +1219,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4264217492815983522, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
     - target: {fileID: 4349558287307973490, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
       propertyPath: aimCamera
       value: 
@@ -1263,6 +1307,10 @@ PrefabInstance:
       propertyPath: aimCamera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 7003081713131520594, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
     - target: {fileID: 7262530899392361500, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
       propertyPath: m_LocalRotation.w
       value: -1
@@ -1275,6 +1323,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 360
       objectReference: {fileID: 0}
+    - target: {fileID: 8157831806385644397, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7dc3f00da91edf2469e3fd31f641cfdd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
