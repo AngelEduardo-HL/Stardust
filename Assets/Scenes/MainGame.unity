@@ -767,6 +767,7 @@ GameObject:
   - component: {fileID: 1874159928}
   - component: {fileID: 1874159930}
   - component: {fileID: 1874159929}
+  - component: {fileID: 1874159931}
   m_Layer: 5
   m_Name: Velocimetro
   m_TagString: Untagged
@@ -893,6 +894,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874159927}
   m_CullTransparentMesh: 1
+--- !u!114 &1874159931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874159927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f191413e373356d4ca9c8d8247f33200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShipSpeedHUD
+  shipRigidbody: {fileID: 1516968475}
+  speedText: {fileID: 1874159929}
+  showSignedSpeed: 1
+  speedMultiplier: 1
+  unitText: 
 --- !u!4 &6445033181803390378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3552834485333203387, guid: 0932c669c9015c240832e4001deb67b2, type: 3}
