@@ -457,6 +457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4496668437921644658}
   - component: {fileID: 5426387784355599622}
+  - component: {fileID: 6612353834462825858}
   m_Layer: 0
   m_Name: HeavyTurret
   m_TagString: Untagged
@@ -502,14 +503,35 @@ MonoBehaviour:
   bodyTurnSpeed: 15
   canonsTurnSpeed: 25
   maxPitchAngle: 45
-  shotCooldown: 1.5
-  shotFlashDuration: 0.08
-  normalRayColor: {r: 0, g: 1, b: 0.109803915, a: 1}
-  firingRayColor: {r: 1, g: 0, b: 0, a: 1}
   weaponRange: 450
   showDebugRay: 1
   reticleScalePerDistance: 0.1
   minimumReticleScale: 0.1
+--- !u!114 &6612353834462825858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7308654155634358901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5f31d3b74f6ef4bb1a79fedbeda41a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TurretWeapon
+  aimController: {fileID: 5426387784355599622}
+  firePoint: {fileID: 2710016475796000735}
+  projectilePrefab: {fileID: 737002950824676615, guid: 03c6ec99faefb264a8a47e42c5497bde, type: 3}
+  projectileDamage: 450
+  projectileSpeed: 150
+  projectileSize: 1
+  spawnOffset: 0.1
+  projectileHitMask:
+    serializedVersion: 2
+    m_Bits: 8
+  minimumShotCooldown: 1
+  maximumShotCooldown: 1.5
+  initialFireSpread: 0.12
 --- !u!1 &8320983955827016573
 GameObject:
   m_ObjectHideFlags: 0

@@ -95,6 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2939293768562519898}
   - component: {fileID: 3151324700351754769}
+  - component: {fileID: 8089195095128990094}
   m_Layer: 0
   m_Name: SmallTurret
   m_TagString: Untagged
@@ -140,14 +141,35 @@ MonoBehaviour:
   bodyTurnSpeed: 35
   canonsTurnSpeed: 25
   maxPitchAngle: 45
-  shotCooldown: 0.3
-  shotFlashDuration: 0.08
-  normalRayColor: {r: 0, g: 1, b: 0.109803915, a: 1}
-  firingRayColor: {r: 1, g: 0, b: 0, a: 1}
   weaponRange: 300
   showDebugRay: 1
   reticleScalePerDistance: 0.25
   minimumReticleScale: 0.25
+--- !u!114 &8089195095128990094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287691493278185536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5f31d3b74f6ef4bb1a79fedbeda41a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TurretWeapon
+  aimController: {fileID: 3151324700351754769}
+  firePoint: {fileID: 1035199466605817855}
+  projectilePrefab: {fileID: 688279670955816988, guid: 97ba4cdf560afc14898ac5b11dcd8fc3, type: 3}
+  projectileDamage: 150
+  projectileSpeed: 250
+  projectileSize: 1
+  spawnOffset: 0.1
+  projectileHitMask:
+    serializedVersion: 2
+    m_Bits: 8
+  minimumShotCooldown: 0.35
+  maximumShotCooldown: 0.75
+  initialFireSpread: 0.8
 --- !u!1 &4302513106270963265
 GameObject:
   m_ObjectHideFlags: 0
