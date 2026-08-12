@@ -371,11 +371,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98fa65c8f51b214684b00743e553a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShipCameraFollow
-  target: {fileID: 1086947910}
-  localOffset: {x: 0, y: 9.19, z: -37.74}
+  cameraPivot: {fileID: 1086947910}
+  cameraDistance: 35
   positionSmoothTime: 0.15
-  rotationSpeed: 8
-  lookAheadDistance: 10
+  horizontalSensitivity: 0.05
+  verticalSensitivity: 0.05
+  startingPitch: 10
+  minimumPitch: -35
+  maximumPitch: 65
+  returnToCenter: 0
+  returnSpeed: 90
+  rotationSmoothSpeed: 50
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
