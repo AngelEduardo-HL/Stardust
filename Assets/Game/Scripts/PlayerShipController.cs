@@ -106,8 +106,8 @@ public sealed class PlayerShipController : MonoBehaviour
 
         // La flecha arriba levanta la nariz.
         pitchInput = ReadAxis(
-            keyboard.sKey.isPressed,
-            keyboard.wKey.isPressed
+            keyboard.wKey.isPressed,
+            keyboard.sKey.isPressed
         );
 
         // Q inclina a la izquierda y E a la derecha.
