@@ -1017,7 +1017,15 @@ PrefabInstance:
       propertyPath: aimCamera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 6438426844450000129, guid: ce7a5df9f1f28754ea1b2f62e740576d, type: 3}
+      propertyPath: aimCamera
+      value: 
+      objectReference: {fileID: 330585545}
     - target: {fileID: 7154433611367900828, guid: ce7a5df9f1f28754ea1b2f62e740576d, type: 3}
+      propertyPath: aimCamera
+      value: 
+      objectReference: {fileID: 330585545}
+    - target: {fileID: 7363494425435772815, guid: ce7a5df9f1f28754ea1b2f62e740576d, type: 3}
       propertyPath: aimCamera
       value: 
       objectReference: {fileID: 330585545}
