@@ -141,7 +141,7 @@ MonoBehaviour:
   bodyTurnSpeed: 35
   canonsTurnSpeed: 25
   maxPitchAngle: 45
-  weaponRange: 300
+  weaponRange: 350
   showDebugRay: 1
   reticleScalePerDistance: 0.25
   minimumReticleScale: 0.25
@@ -160,7 +160,7 @@ MonoBehaviour:
   aimController: {fileID: 3151324700351754769}
   firePoint: {fileID: 1035199466605817855}
   projectilePrefab: {fileID: 688279670955816988, guid: 97ba4cdf560afc14898ac5b11dcd8fc3, type: 3}
-  projectileDamage: 112
+  projectileDamage: 115
   projectileSpeed: 250
   projectileSize: 1
   spawnOffset: 0.1

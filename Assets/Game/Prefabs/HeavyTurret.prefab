@@ -529,8 +529,8 @@ MonoBehaviour:
   projectileHitMask:
     serializedVersion: 2
     m_Bits: 8
-  minimumShotCooldown: 1.19
-  maximumShotCooldown: 1.32
+  minimumShotCooldown: 1.52
+  maximumShotCooldown: 1.79
   initialFireSpread: 0.25
 --- !u!1 &8320983955827016573
 GameObject:
