@@ -78,11 +78,11 @@ MonoBehaviour:
   maximumForwardSpeed: 8
   timeToMaximumForwardSpeed: 3
   forwardBrakeTime: 3
-  maximumReverseSpeed: 4
+  maximumReverseSpeed: 3
   timeToMaximumReverseSpeed: 2
   reverseStopTime: 0.75
-  maximumVerticalSpeed: 1
-  verticalAccelerationTime: 1
+  maximumVerticalSpeed: 0.5
+  verticalAccelerationTime: 0.5
   verticalStopTime: 0.5
   yaw180TurnTime: 35
   pitch180TurnTime: 35
@@ -104,7 +104,7 @@ MonoBehaviour:
   shipRigidbody: {fileID: 2379916379180178356}
   thrusterRenderers:
   - {fileID: 6011203797809987838}
-  maximumSpeed: 10
+  maximumSpeed: 8
   emissionColor: {r: 0, g: 1, b: 1, a: 1}
   minimumIntensity: 0.2
   maximumIntensity: 8
