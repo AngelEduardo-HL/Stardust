@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public sealed class PlayerShipSpawner : MonoBehaviour
 {
@@ -34,6 +35,18 @@ public sealed class PlayerShipSpawner : MonoBehaviour
 
     private PlayerShipReferences currentShip;
 
+    private void Update()
+    {
+        if (Keyboard.current == null)
+        {
+            return;
+        }
+
+        if (Keyboard.current.mKey.wasPressedThisFrame)
+        {
+            ToggleShipSelectionPanel();
+        }
+    }
 
     private void Awake()
     {
@@ -121,6 +134,17 @@ public sealed class PlayerShipSpawner : MonoBehaviour
         }
     }
 
+    private void ToggleShipSelectionPanel()
+    {
+        if (shipSelectionPanel == null)
+        {
+            return;
+        }
+
+        shipSelectionPanel.SetActive(
+            !shipSelectionPanel.activeSelf
+        );
+    }
 
     private void ConfigureNewShip(
         PlayerShipReferences ship

@@ -1282,7 +1282,7 @@ MonoBehaviour:
   mainCamera: {fileID: 330585545}
   cameraFollow: {fileID: 330585548}
   speedHUD: {fileID: 1874159931}
-  shipSelectionPanel: {fileID: 0}
+  shipSelectionPanel: {fileID: 141171700}
 --- !u!4 &1321462042
 Transform:
   m_ObjectHideFlags: 0
