@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public sealed class HealthController : MonoBehaviour
@@ -14,16 +15,29 @@ public sealed class HealthController : MonoBehaviour
     public float CurrentHealth => currentHealth;
     public float MaxHealth => maxHealth;
 
+    public float HealthPercentage =>
+        maxHealth > 0f
+            ? currentHealth / maxHealth
+            : 0f;
+
+
+    public event Action<HealthController> HealthChanged;
+    public event Action<HealthController> Died;
+
+
+    private bool isDead;
+
 
     private void Awake()
     {
         currentHealth = maxHealth;
+        isDead = false;
     }
 
 
     public void TakeDamage(float damage)
     {
-        if (damage <= 0f)
+        if (damage <= 0f || isDead)
         {
             return;
         }
@@ -34,6 +48,9 @@ public sealed class HealthController : MonoBehaviour
                 currentHealth - damage,
                 0f
             );
+
+
+        HealthChanged?.Invoke(this);
 
 
         Debug.Log(
@@ -52,10 +69,22 @@ public sealed class HealthController : MonoBehaviour
 
     private void Die()
     {
+        if (isDead)
+        {
+            return;
+        }
+
+
+        isDead = true;
+
+
         Debug.Log(
             $"{name} destruido.",
             this
         );
+
+        Died?.Invoke(this);
+
 
         Destroy(gameObject);
     }
