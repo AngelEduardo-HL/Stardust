@@ -91,6 +91,38 @@ public sealed class ShipCameraFollow : MonoBehaviour
         targetDistance = cameraDistance;
     }
 
+    public void SetCameraPivot(Transform newCameraPivot)
+    {
+        cameraPivot =
+        newCameraPivot;
+
+
+        // Reinicia la vista para que al
+        // cambiar de nave
+        orbitYaw = 0f;
+
+        orbitPitch =
+            startingPitch;
+
+
+        currentDistance =
+            Mathf.Clamp(
+                cameraDistance,
+                minimumDistance,
+                maximumDistance
+            );
+
+
+        targetDistance =
+            currentDistance;
+
+
+        positionVelocity =
+            Vector3.zero;
+
+        zoomVelocity = 0f; ;
+    }
+
 
     private void LateUpdate()
     {
@@ -125,29 +157,20 @@ public sealed class ShipCameraFollow : MonoBehaviour
     }
 
 
-    private void HandleMouseState(bool freeLook)
+    private void HandleMouseState(
+    bool freeLook
+)
     {
-        if (freeLook &&
-            !wasFreeLooking)
-        {
-            Cursor.lockState =
-                CursorLockMode.Locked;
 
-            Cursor.visible = false;
-        }
+        Cursor.lockState =
+            CursorLockMode.None;
+
+        Cursor.visible =
+            true;
 
 
-        if (!freeLook &&
-            wasFreeLooking)
-        {
-            Cursor.lockState =
-                CursorLockMode.None;
-
-            Cursor.visible = true;
-        }
-
-
-        wasFreeLooking = freeLook;
+        wasFreeLooking =
+            freeLook;
     }
 
 

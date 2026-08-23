@@ -68,4 +68,23 @@ public sealed class ShipSpeedHUD : MonoBehaviour
                 $"KM: {speed:0.0} {unitText}";
         }
     }
+
+    public void SetShip(
+    Rigidbody newShipRigidbody
+)
+    {
+        shipRigidbody =
+            newShipRigidbody;
+    }
+
+    public void ClearShip()
+    {
+        shipRigidbody = null;
+
+        if (speedText != null)
+        {
+            speedText.text =
+                "KM: 0.0";
+        }
+    }
 }

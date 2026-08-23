@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2908331564008257033}
   - component: {fileID: 5304365367430873050}
   - component: {fileID: 7444238149076625721}
+  - component: {fileID: 8430335606141704597}
   m_Layer: 0
   m_Name: PlayerShipArquitems
   m_TagString: Untagged
@@ -109,6 +110,20 @@ MonoBehaviour:
   minimumIntensity: 0.2
   maximumIntensity: 8
   intensityChangeSpeed: 4
+--- !u!114 &8430335606141704597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4096897266682927822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b228f626740eb40ac442d1c9037a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerShipReferences
+  shipRigidbody: {fileID: 2908331564008257033}
+  cameraPivot: {fileID: 1198113258654447845}
 --- !u!1 &7893816310919343448
 GameObject:
   m_ObjectHideFlags: 0

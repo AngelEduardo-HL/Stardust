@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 3626798388661796428}
   - component: {fileID: 2695421914254280562}
   - component: {fileID: 2585132043899938443}
+  - component: {fileID: 5391653177306848062}
   m_Layer: 0
   m_Name: PlayerShipRider
   m_TagString: Untagged
@@ -289,6 +290,20 @@ MonoBehaviour:
   minimumIntensity: 0.2
   maximumIntensity: 8
   intensityChangeSpeed: 4
+--- !u!114 &5391653177306848062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990422137441953363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b228f626740eb40ac442d1c9037a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerShipReferences
+  shipRigidbody: {fileID: 3626798388661796428}
+  cameraPivot: {fileID: 3989721885417650292}
 --- !u!1 &3679119303594135979
 GameObject:
   m_ObjectHideFlags: 0

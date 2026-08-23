@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2379916379180178356}
   - component: {fileID: 7554029340669118735}
   - component: {fileID: 658598594754220997}
+  - component: {fileID: -1188062945756657686}
   m_Layer: 0
   m_Name: PlayerShipVindicador
   m_TagString: Untagged
@@ -109,6 +110,20 @@ MonoBehaviour:
   minimumIntensity: 0.2
   maximumIntensity: 8
   intensityChangeSpeed: 4
+--- !u!114 &-1188062945756657686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4003305552493534097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b228f626740eb40ac442d1c9037a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerShipReferences
+  shipRigidbody: {fileID: 2379916379180178356}
+  cameraPivot: {fileID: 5605733976257157278}
 --- !u!1 &8871872831835629896
 GameObject:
   m_ObjectHideFlags: 0

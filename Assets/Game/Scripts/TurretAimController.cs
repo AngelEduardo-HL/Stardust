@@ -31,7 +31,7 @@ public sealed class TurretAimController : MonoBehaviour
     [SerializeField, Min(0f)]
     private float canonsTurnSpeed = 25f;
 
-    [Tooltip("Angulo maximo provisional hacia arriba y abajo.")]
+    [Tooltip("Angulo maximo hacia arriba y abajo.")]
     [SerializeField, Range(0f, 89f)]
     private float maxPitchAngle = 45f;
 
@@ -49,10 +49,10 @@ public sealed class TurretAimController : MonoBehaviour
 
     [Tooltip("Controla el tamaño visual de la reticula.")]
     [SerializeField, Min(0.0001f)]
-    private float reticleScalePerDistance = 0.008f;
+    private float reticleScalePerDistance = 0.1f;
 
     [SerializeField, Min(0.01f)]
-    private float minimumReticleScale = 0.15f;
+    private float minimumReticleScale = 0.1f;
 
     
     private Quaternion bodyStartRotation;
@@ -104,14 +104,10 @@ public sealed class TurretAimController : MonoBehaviour
                 firePoint.forward
             );
 
-
-        // Direccion neutral respecto
-        // al BodyPivot.
         neutralForwardBody =
             bodyPivot.InverseTransformDirection(
                 firePoint.forward
             );
-
 
         // Eje rojo X del CanonsPivot.
         pitchAxisBody =
@@ -143,28 +139,24 @@ public sealed class TurretAimController : MonoBehaviour
         UpdateRangeReticle();
     }
 
+    public void SetAimCamera(
+    Camera newCamera
+)
+    {
+        aimCamera =
+            newCamera;
+    }
 
     private Vector3 GetCursorAimPoint()
     {
         Vector2 screenPosition;
 
 
-        // Cuando estamos moviendo la camara
-        // con click derecho, apuntamos al
-        // centro de la pantalla.
-        if (Cursor.lockState ==
-            CursorLockMode.Locked)
+        if (Mouse.current != null)
         {
             screenPosition =
-                new Vector2(
-                    Screen.width * 0.5f,
-                    Screen.height * 0.5f
-                );
-        }
-        else if (Mouse.current != null)
-        {
-            screenPosition =
-                Mouse.current.position.ReadValue();
+                Mouse.current.position
+                    .ReadValue();
         }
         else
         {
@@ -266,9 +258,6 @@ public sealed class TurretAimController : MonoBehaviour
         Vector3 neutral =
             neutralForwardRoot;
 
-
-        // Para el yaw solo nos importa
-        // el plano horizontal.
         directionLocal.y = 0f;
         neutral.y = 0f;
 
@@ -411,8 +400,6 @@ public sealed class TurretAimController : MonoBehaviour
 
         if (rangeReticle != null)
         {
-            // La reticula se coloca al final
-            // del alcance REAL de la torreta.
             rangeReticle.position =
                 rayEnd;
 
@@ -421,15 +408,11 @@ public sealed class TurretAimController : MonoBehaviour
             rangeReticle.rotation =
                 aimCamera.transform.rotation;
 
-
-            // Mantiene un tamaño visible
-            // aunque esté muy lejos.
             float distanceToCamera =
                 Vector3.Distance(
                     aimCamera.transform.position,
                     rayEnd
                 );
-
 
             float scale =
                 Mathf.Max(
