@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4947033614180000283}
   - component: {fileID: 3924042730959538242}
   - component: {fileID: 4121380606141752724}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7116732524549156068}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9186990424693249171}
   - component: {fileID: 688279670955816988}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LightLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
