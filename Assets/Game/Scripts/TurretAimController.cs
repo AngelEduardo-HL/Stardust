@@ -65,6 +65,39 @@ public sealed class TurretAimController : MonoBehaviour
     private float currentYaw;
     private float currentPitch;
 
+    private Collider lockedTarget;
+
+
+    public bool HasLockedTarget =>
+        lockedTarget != null;
+
+
+    public bool IsLockedTargetInRange
+    {
+        get
+        {
+            if (lockedTarget == null ||
+                firePoint == null)
+            {
+                return true;
+            }
+
+
+            Vector3 targetPosition =
+                lockedTarget.bounds.center;
+
+
+            float sqrDistance =
+                (
+                    targetPosition -
+                    firePoint.position
+                ).sqrMagnitude;
+
+
+            return sqrDistance <=
+                   weaponRange * weaponRange;
+        }
+    }
 
     private void Awake()
     {
@@ -129,8 +162,21 @@ public sealed class TurretAimController : MonoBehaviour
             }
         }
 
-        Vector3 aimPoint =
-            GetCursorAimPoint();
+        Vector3 aimPoint;
+
+
+        if (lockedTarget != null)
+        {
+            // AUTO AIM:
+            aimPoint =
+                lockedTarget.bounds.center;
+        }
+        else
+        {
+            // MANUAL:
+            aimPoint =
+                GetCursorAimPoint();
+        }
 
         RotateBody(aimPoint);
 
@@ -139,12 +185,21 @@ public sealed class TurretAimController : MonoBehaviour
         UpdateRangeReticle();
     }
 
-    public void SetAimCamera(
-    Camera newCamera
-)
+    public void SetAimCamera(Camera newCamera)
     {
         aimCamera =
             newCamera;
+    }
+
+    public void SetLockedTarget(Collider target)
+    {
+        lockedTarget = target;
+    }
+
+
+    public void ClearLockedTarget()
+    {
+        lockedTarget = null;
     }
 
     private Vector3 GetCursorAimPoint()
@@ -223,15 +278,11 @@ public sealed class TurretAimController : MonoBehaviour
         }
 
 
-        return cameraRay.GetPoint(
-            weaponRange
-        );
+        return cameraRay.GetPoint(weaponRange);
     }
 
 
-    private void RotateBody(
-        Vector3 aimPoint
-    )
+    private void RotateBody(Vector3 aimPoint)
     {
         Transform turretRoot =
             bodyPivot.parent;

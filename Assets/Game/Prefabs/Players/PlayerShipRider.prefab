@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 2695421914254280562}
   - component: {fileID: 2585132043899938443}
   - component: {fileID: 5391653177306848062}
+  - component: {fileID: 3101043597010770340}
   m_Layer: 0
   m_Name: PlayerShipRider
   m_TagString: Untagged
@@ -304,6 +305,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerShipReferences
   shipRigidbody: {fileID: 3626798388661796428}
   cameraPivot: {fileID: 3989721885417650292}
+--- !u!114 &3101043597010770340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990422137441953363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1573f99a3267d478c768895213a1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTargetLockController
+  aimCamera: {fileID: 0}
+  enemyTargetMask:
+    serializedVersion: 2
+    m_Bits: 8
+  lockRayDistance: 5000
 --- !u!1 &3679119303594135979
 GameObject:
   m_ObjectHideFlags: 0

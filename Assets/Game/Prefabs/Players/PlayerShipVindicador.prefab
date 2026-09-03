@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7554029340669118735}
   - component: {fileID: 658598594754220997}
   - component: {fileID: -1188062945756657686}
+  - component: {fileID: -5670589702655172930}
   m_Layer: 0
   m_Name: PlayerShipVindicador
   m_TagString: Untagged
@@ -124,6 +125,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerShipReferences
   shipRigidbody: {fileID: 2379916379180178356}
   cameraPivot: {fileID: 5605733976257157278}
+--- !u!114 &-5670589702655172930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4003305552493534097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1573f99a3267d478c768895213a1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerTargetLockController
+  aimCamera: {fileID: 0}
+  enemyTargetMask:
+    serializedVersion: 2
+    m_Bits: 8
+  lockRayDistance: 5000
 --- !u!1 &8871872831835629896
 GameObject:
   m_ObjectHideFlags: 0

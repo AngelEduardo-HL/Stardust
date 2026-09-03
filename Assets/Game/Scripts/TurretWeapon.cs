@@ -121,6 +121,12 @@ public sealed class TurretWeapon : MonoBehaviour
             return;
         }
 
+        if (aimController != null &&
+            aimController.HasLockedTarget &&
+            !aimController.IsLockedTargetInRange)
+        {
+            return;
+        }
 
         if (Time.time <
             nextShotTime)
