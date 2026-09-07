@@ -51,6 +51,7 @@ public sealed class EnemyShipAI : MonoBehaviour
     [SerializeField] private float orbitRadius;
 
     private Rigidbody shipRigidbody;
+    public bool CanFight => currentState != EnemyShipState.Arrival;
 
     private Transform spaceStation;
     private float minimumApproachRadius;

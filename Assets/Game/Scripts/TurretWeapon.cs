@@ -3,8 +3,13 @@ using UnityEngine.InputSystem;
 
 public sealed class TurretWeapon : MonoBehaviour
 {
-    [Header("Referencias")]
+    public enum FireControlMode
+    {
+        Player,
+        AI
+    }
 
+    [Header("Referencias")]
     [SerializeField]
     private TurretAimController aimController;
 
@@ -14,9 +19,11 @@ public sealed class TurretWeapon : MonoBehaviour
     [SerializeField]
     private ProjectileController projectilePrefab;
 
+    [Header("Control")]
+    [SerializeField] private FireControlMode fireControlMode = FireControlMode.Player;
+    private bool aiFireRequested;
 
     [Header("Proyectil")]
-
     [Tooltip("Daño causado por cada disparo.")]
     [SerializeField, Min(0f)]
     private float projectileDamage = 10f;
@@ -36,9 +43,7 @@ public sealed class TurretWeapon : MonoBehaviour
     [SerializeField]
     private LayerMask projectileHitMask;
 
-
     [Header("Cadencia")]
-
     [Tooltip("Cooldown mínimo entre disparos.")]
     [SerializeField, Min(0.01f)]
     private float minimumShotCooldown = 0.30f;
@@ -47,16 +52,12 @@ public sealed class TurretWeapon : MonoBehaviour
     [SerializeField, Min(0.01f)]
     private float maximumShotCooldown = 0.40f;
 
-    [Tooltip(
-        "Variación inicial para que varias torretas " +
-        "no comiencen exactamente al mismo tiempo."
-    )]
+    [Tooltip("Variación inicial para que varias torretas " + "no comiencen exactamente al mismo tiempo.")]
     [SerializeField, Min(0f)]
     private float initialFireSpread = 0.12f;
 
 
     private float nextShotTime;
-
     private bool wasFirePressed;
 
 
@@ -64,121 +65,72 @@ public sealed class TurretWeapon : MonoBehaviour
     {
         if (aimController == null)
         {
-            aimController =
-                GetComponent
-                <TurretAimController>();
+            aimController = GetComponent <TurretAimController>();
         }
 
 
-        if (minimumShotCooldown >
-            maximumShotCooldown)
+        if (minimumShotCooldown > maximumShotCooldown)
         {
-            float temporary =
-                minimumShotCooldown;
+            float temporary = minimumShotCooldown;
 
-            minimumShotCooldown =
-                maximumShotCooldown;
+            minimumShotCooldown = maximumShotCooldown;
 
-            maximumShotCooldown =
-                temporary;
+            maximumShotCooldown = temporary;
         }
     }
 
 
     private void Update()
     {
-        if (Mouse.current == null)
+        bool firePressed = false;
+
+        if (fireControlMode == FireControlMode.Player)
         {
+            if (Mouse.current == null) return;
+
+            firePressed = Mouse.current.leftButton.isPressed;
+        }
+        else
+        {
+            firePressed = aiFireRequested;
+        }
+
+        if (firePressed && !wasFirePressed)
+            nextShotTime = Time.time + Random.Range(0f, initialFireSpread);
+
+        wasFirePressed = firePressed;
+
+        if (!firePressed) return;
+
+        if (aimController != null && aimController.HasLockedTarget && !aimController.IsLockedTargetInRange)
             return;
-        }
 
-
-        bool firePressed =
-            Mouse.current
-            .leftButton
-            .isPressed;
-
-
-        // Acaba de comenzar una ráfaga.
-        if (firePressed &&
-            !wasFirePressed)
-        {
-            nextShotTime =
-                Time.time +
-                Random.Range(
-                    0f,
-                    initialFireSpread
-                );
-        }
-
-
-        wasFirePressed =
-            firePressed;
-
-
-        if (!firePressed)
-        {
-            return;
-        }
-
-        if (aimController != null &&
-            aimController.HasLockedTarget &&
-            !aimController.IsLockedTargetInRange)
-        {
-            return;
-        }
-
-        if (Time.time <
-            nextShotTime)
-        {
-            return;
-        }
-
+        if (Time.time < nextShotTime) return;
 
         FireProjectile();
 
-
-        // Cada torreta obtiene su propio
-        // cooldown aleatorio.
-        nextShotTime =
-            Time.time +
-            Random.Range(
-                minimumShotCooldown,
-                maximumShotCooldown
-            );
+        nextShotTime = Time.time + Random.Range(minimumShotCooldown, maximumShotCooldown);
     }
-
 
     private void FireProjectile()
     {
-        if (firePoint == null ||
-            projectilePrefab == null ||
-            aimController == null)
+        if (firePoint == null ||projectilePrefab == null ||aimController == null)
         {
             return;
         }
 
+        Vector3 spawnPosition = firePoint.position + firePoint.forward * spawnOffset;
 
-        Vector3 spawnPosition =
-            firePoint.position +
-            firePoint.forward *
-            spawnOffset;
+        ProjectileController projectile = Instantiate( projectilePrefab, spawnPosition, firePoint.rotation);
+        projectile.Initialize(projectileDamage, projectileSpeed, aimController.WeaponRange, projectileSize,projectileHitMask);
+    }
+    public void SetAIFire(bool value)
+    {
+        aiFireRequested = value;
+    }
 
-
-        ProjectileController projectile =
-            Instantiate(
-                projectilePrefab,
-                spawnPosition,
-                firePoint.rotation
-            );
-
-
-        projectile.Initialize(
-            projectileDamage,
-            projectileSpeed,
-            aimController.WeaponRange,
-            projectileSize,
-            projectileHitMask
-        );
+    public void SetFireControlMode(FireControlMode mode)
+    {
+        fireControlMode = mode;
     }
 }
