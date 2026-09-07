@@ -143,8 +143,8 @@ MonoBehaviour:
   maxPitchAngle: 45
   weaponRange: 340
   showDebugRay: 1
-  reticleScalePerDistance: 0.12
-  minimumReticleScale: 0.12
+  reticleScalePerDistance: 0.15
+  minimumReticleScale: 0.15
 --- !u!114 &8089195095128990094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +171,7 @@ MonoBehaviour:
   minimumShotCooldown: 0.72
   maximumShotCooldown: 0.79
   initialFireSpread: 1
+  damageSource: 1
 --- !u!1 &4302513106270963265
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +343,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 36cfa084ba6306445bd30dd1048598ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

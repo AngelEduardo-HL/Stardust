@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 6643926435732952862}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -154,13 +154,13 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!114 &5991436750286359673
 MonoBehaviour:
@@ -177,7 +177,7 @@ MonoBehaviour:
   arrivalSpeed: 2000
   arrivalBrakeStartDistance: 20
   arrivalPointTolerance: 5
-  maximumForwardSpeed: 12
+  maximumForwardSpeed: 8
   timeToMaximumForwardSpeed: 3
   forwardBrakeTime: 2
   yaw180TurnTime: 50
@@ -276,7 +276,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

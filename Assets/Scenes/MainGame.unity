@@ -7795,8 +7795,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
   enemySpawnManager: {fileID: 714929089}
-  corvettePrefab: {fileID: 5991436750286359673, guid: 1ece48cb33192924ea064d928166ee01, type: 3}
-  cruiserPrefab: {fileID: 5991436750286359673, guid: 1ece48cb33192924ea064d928166ee01, type: 3}
+  corvettePrefab: {fileID: 6119073654896057432, guid: 8cec7d337ce79df4395c94d0bbfa5b41, type: 3}
+  cruiserPrefab: {fileID: 1165198190583602091, guid: 68b884a784b39ab4ab6dd7f1f3d31563, type: 3}
   dreadnoughtPrefab: {fileID: 5991436750286359673, guid: 1ece48cb33192924ea064d928166ee01, type: 3}
   waves:
   - corvettes: 3
