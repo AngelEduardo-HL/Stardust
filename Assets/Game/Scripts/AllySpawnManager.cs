@@ -15,6 +15,11 @@ public sealed class AllySpawnManager : MonoBehaviour
     [SerializeField] private EnemyShipAI cruiserPrefab;
     [SerializeField] private EnemyShipAI dreadnoughtPrefab;
 
+    [Header("Costos")]
+    [SerializeField, Min(0)] private int corvetteCost = 1250;
+    [SerializeField, Min(0)] private int cruiserCost = 4600;
+    [SerializeField, Min(0)] private int dreadnoughtCost = 8000;
+
     [Header("Carriles de entrada")]
     [SerializeField] private SpawnLane[] spawnLanes;
 
@@ -30,13 +35,13 @@ public sealed class AllySpawnManager : MonoBehaviour
         if (Keyboard.current == null) return;
 
         if (Keyboard.current.digit1Key.wasPressedThisFrame)
-            SpawnAlly(corvettePrefab);
+            TryBuyAlly(corvettePrefab, corvetteCost);
 
         if (Keyboard.current.digit2Key.wasPressedThisFrame)
-            SpawnAlly(cruiserPrefab);
+            TryBuyAlly(cruiserPrefab, cruiserCost);
 
         if (Keyboard.current.digit3Key.wasPressedThisFrame)
-            SpawnAlly(dreadnoughtPrefab);
+            TryBuyAlly(dreadnoughtPrefab, dreadnoughtCost);
     }
 
     public EnemyShipAI SpawnAlly(EnemyShipAI allyPrefab)
@@ -117,5 +122,36 @@ public sealed class AllySpawnManager : MonoBehaviour
             Gizmos.DrawLine(previous, next);
             previous = next;
         }
+    }
+    private void TryBuyAlly(EnemyShipAI prefab, int cost)
+    {
+        if (prefab == null)
+        {
+            Debug.LogWarning("No hay prefab aliado asignado.", this);
+            return;
+        }
+
+        if (CreditManager.Instance == null)
+        {
+            Debug.LogError("No existe CreditManager en la escena.", this);
+            return;
+        }
+
+        if (!CreditManager.Instance.TrySpendCredits(cost))
+        {
+            Debug.Log($"Creditos insuficientes. Necesitas {cost}.", this);
+            return;
+        }
+
+        EnemyShipAI ally = SpawnAlly(prefab);
+
+        if (ally == null)
+        {
+            CreditManager.Instance.AddCredits(cost);
+            Debug.LogWarning("No pudo aparecer el aliado. Se devolvieron los creditos.", this);
+            return;
+        }
+
+        Debug.Log($"Desplegado {ally.name} por {cost} creditos.", ally);
     }
 }

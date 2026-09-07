@@ -56,6 +56,8 @@ public sealed class TurretWeapon : MonoBehaviour
     [SerializeField, Min(0f)]
     private float initialFireSpread = 0.12f;
 
+    [Header("Origen del daño")]
+    [SerializeField] private DamageSourceType damageSource = DamageSourceType.Player;
 
     private float nextShotTime;
     private bool wasFirePressed;
@@ -122,7 +124,7 @@ public sealed class TurretWeapon : MonoBehaviour
         Vector3 spawnPosition = firePoint.position + firePoint.forward * spawnOffset;
 
         ProjectileController projectile = Instantiate( projectilePrefab, spawnPosition, firePoint.rotation);
-        projectile.Initialize(projectileDamage, projectileSpeed, aimController.WeaponRange, projectileSize,projectileHitMask);
+        projectile.Initialize(projectileDamage, projectileSpeed, aimController.WeaponRange, projectileSize, projectileHitMask, damageSource);
     }
     public void SetAIFire(bool value)
     {

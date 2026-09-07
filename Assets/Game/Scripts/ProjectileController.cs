@@ -7,6 +7,7 @@ public sealed class ProjectileController : MonoBehaviour
     [Tooltip("Radio base usado para detectar impactos.")]
     [SerializeField, Min(0.01f)]
     private float baseHitRadius = 0.1f;
+    private DamageSourceType damageSource = DamageSourceType.None;
 
 
     private float damage;
@@ -32,52 +33,29 @@ public sealed class ProjectileController : MonoBehaviour
 
 
     public void Initialize(
-        float newDamage,
-        float newSpeed,
-        float newRange,
-        float sizeMultiplier,
-        LayerMask newHitMask
-    )
+    float newDamage,
+    float newSpeed,
+    float newRange,
+    float sizeMultiplier,
+    LayerMask newHitMask,
+    DamageSourceType newDamageSource)
     {
-        damage =
-            newDamage;
+        damage = newDamage;
+        speed = newSpeed;
+        maxRange = newRange;
+        hitMask = newHitMask;
+        damageSource = newDamageSource;
 
-        speed =
-            newSpeed;
+        direction = transform.forward.normalized;
 
-        maxRange =
-            newRange;
+        float safeSize = Mathf.Max(sizeMultiplier, 0.01f);
 
-        hitMask =
-            newHitMask;
-
-
-        direction =
-            transform.forward.normalized;
-
-
-        float safeSize =
-            Mathf.Max(
-                sizeMultiplier,
-                0.01f
-            );
-
-
-        transform.localScale =
-            baseScale *
-            safeSize;
-
-
-        hitRadius =
-            baseHitRadius *
-            safeSize;
-
+        transform.localScale = baseScale * safeSize;
+        hitRadius = baseHitRadius * safeSize;
 
         travelledDistance = 0f;
-
         initialized = true;
     }
-
 
     private void Update()
     {
@@ -117,9 +95,6 @@ public sealed class ProjectileController : MonoBehaviour
                 remainingRange
             );
 
-
-        // Comprobamos todo el espacio que
-        // recorrerá el proyectil este frame.
         if (Physics.SphereCast(
                 transform.position,
                 hitRadius,
@@ -160,22 +135,19 @@ public sealed class ProjectileController : MonoBehaviour
     }
 
 
-    private void HitTarget(
-        Collider hitCollider
-    )
+    private void HitTarget(Collider hitCollider)
     {
-        HealthController health =
-            hitCollider.GetComponentInParent
-            <HealthController>();
+        HealthController health = hitCollider.GetComponentInParent<HealthController>();
 
-
-        if (health != null)
+        if (health != null && !health.IsDead)
         {
-            health.TakeDamage(
-                damage
-            );
-        }
+            ShipCreditReward reward = hitCollider.GetComponentInParent<ShipCreditReward>();
 
+            if (reward != null)
+                reward.RegisterHit(damageSource);
+
+            health.TakeDamage(damage, damageSource);
+        }
 
         Destroy(gameObject);
     }
