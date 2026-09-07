@@ -87,7 +87,9 @@ public sealed class EnemySpawnManager : MonoBehaviour
 
         enemy.Initialize(
             lane.arrivalPoint.position,
-            randomApproachPoint
+            spaceStation,
+            minimumApproachRadius,
+            maximumApproachRadius
         );
 
         return enemy;
