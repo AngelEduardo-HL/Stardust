@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5991436750286359673}
   - component: {fileID: 8441487331536125912}
   m_Layer: 3
-  m_Name: EnemyShip
+  m_Name: Enemy_Destroyer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86708484e315d0c41ad0df396c904e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthController
-  maxHealth: 250000
+  maxHealth: 125000
   currentHealth: 0
 --- !u!54 &9054983152880281977
 Rigidbody:
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e745a4be167c874a974202dc96eb656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShipAI
-  arrivalSpeed: 400
+  arrivalSpeed: 2000
   arrivalBrakeStartDistance: 20
   arrivalPointTolerance: 5
   maximumForwardSpeed: 12
@@ -183,7 +183,7 @@ MonoBehaviour:
   hardTurnAngle: 60
   hardTurnSpeedMultiplier: 0.55
   avoidancePadding: 10
-  orbitLookAheadDistance: 45
+  orbitLookAheadDistance: 90
   orbitRadialStrength: 2
   orbitWhenTurnExceeds: 65
   orbitExitAngle: 30
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCombatController
   targetMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 896
   searchRadius: 1000
   targetRefreshInterval: 0.5
   canAttackDuringApproach: 1
@@ -402,6 +402,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MicroTurret (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -420,6 +428,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1355163767889899844}
     m_Modifications:
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4496668437921644658, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5
@@ -490,6 +506,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1355163767889899844}
     m_Modifications:
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4496668437921644658, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5
@@ -624,6 +648,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MediumTurret (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -642,6 +674,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1355163767889899844}
     m_Modifications:
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4496668437921644658, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10
@@ -764,6 +804,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MicroTurret (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -845,6 +893,14 @@ PrefabInstance:
     - target: {fileID: 7585656208580010114, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
       propertyPath: m_Name
       value: MediumTurret (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -928,6 +984,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MediumTurret (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -998,6 +1062,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MicroTurret (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1016,6 +1088,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1355163767889899844}
     m_Modifications:
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4496668437921644658, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5
@@ -1086,6 +1166,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1355163767889899844}
     m_Modifications:
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4496668437921644658, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5
@@ -1156,6 +1244,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1355163767889899844}
     m_Modifications:
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4496668437921644658, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.8999996
@@ -1278,6 +1374,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MicroTurret (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1360,6 +1464,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MediumTurret (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1430,6 +1542,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MicroTurret
       objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1499,6 +1619,14 @@ PrefabInstance:
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Name
       value: MicroTurret (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1582,6 +1710,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MediumTurret (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1651,6 +1787,14 @@ PrefabInstance:
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Name
       value: MicroTurret (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1722,6 +1866,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MicroTurret (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1791,6 +1943,14 @@ PrefabInstance:
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Name
       value: MicroTurret (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1862,6 +2022,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MicroTurret (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1932,6 +2100,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MicroTurret (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1950,6 +2126,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1355163767889899844}
     m_Modifications:
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4496668437921644658, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10
@@ -2290,6 +2474,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MicroTurret (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2371,6 +2563,14 @@ PrefabInstance:
     - target: {fileID: 7585656208580010114, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
       propertyPath: m_Name
       value: MediumTurret (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2454,6 +2654,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MediumTurret
       objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2536,6 +2744,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MediumTurret (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256974399580334831, guid: 39bddcfedd9e96c4987ce6f098f3d8ef, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2554,6 +2770,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1355163767889899844}
     m_Modifications:
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4496668437921644658, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.8999996

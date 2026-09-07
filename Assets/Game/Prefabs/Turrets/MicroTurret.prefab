@@ -381,8 +381,8 @@ MonoBehaviour:
   maxPitchAngle: 45
   weaponRange: 300
   showDebugRay: 1
-  reticleScalePerDistance: 0.1
-  minimumReticleScale: 0.1
+  reticleScalePerDistance: 0.15
+  minimumReticleScale: 0.15
 --- !u!114 &-8216654756558644282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,15 +398,16 @@ MonoBehaviour:
   aimController: {fileID: -7376345780287614473}
   firePoint: {fileID: 4605332252200477108}
   projectilePrefab: {fileID: 688279670955816988, guid: 97ba4cdf560afc14898ac5b11dcd8fc3, type: 3}
-  projectileDamage: 95
+  fireControlMode: 0
+  projectileDamage: 90
   projectileSpeed: 300
   projectileSize: 1
   spawnOffset: 0.1
   projectileHitMask:
     serializedVersion: 2
     m_Bits: 8
-  minimumShotCooldown: 0.52
-  maximumShotCooldown: 0.79
+  minimumShotCooldown: 0.48
+  maximumShotCooldown: 0.58
   initialFireSpread: 0.1
 --- !u!1 &7330631145970237796
 GameObject:

@@ -51,10 +51,9 @@ public sealed class TurretAimController : MonoBehaviour
     [SerializeField, Min(0.0001f)]
     private float reticleScalePerDistance = 0.1f;
 
-    [SerializeField, Min(0.01f)]
+    [SerializeField, Min(0.0001f)]
     private float minimumReticleScale = 0.1f;
 
-    
     private Quaternion bodyStartRotation;
     private Quaternion canonsStartRotation;
 

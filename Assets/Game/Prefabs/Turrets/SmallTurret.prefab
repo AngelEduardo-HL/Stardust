@@ -141,10 +141,10 @@ MonoBehaviour:
   bodyTurnSpeed: 35
   canonsTurnSpeed: 25
   maxPitchAngle: 45
-  weaponRange: 350
+  weaponRange: 340
   showDebugRay: 1
-  reticleScalePerDistance: 0.25
-  minimumReticleScale: 0.25
+  reticleScalePerDistance: 0.12
+  minimumReticleScale: 0.12
 --- !u!114 &8089195095128990094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +160,8 @@ MonoBehaviour:
   aimController: {fileID: 3151324700351754769}
   firePoint: {fileID: 1035199466605817855}
   projectilePrefab: {fileID: 688279670955816988, guid: 97ba4cdf560afc14898ac5b11dcd8fc3, type: 3}
-  projectileDamage: 115
+  fireControlMode: 0
+  projectileDamage: 135
   projectileSpeed: 250
   projectileSize: 1
   spawnOffset: 0.1
@@ -169,7 +170,7 @@ MonoBehaviour:
     m_Bits: 8
   minimumShotCooldown: 0.72
   maximumShotCooldown: 0.79
-  initialFireSpread: 1.25
+  initialFireSpread: 1
 --- !u!1 &4302513106270963265
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +288,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0.120106235, y: 0.427, z: -1.65}
-  m_LocalScale: {x: 3.3671498, y: 3.3671498, z: 3.3671498}
+  m_LocalScale: {x: 0.7183477, y: 0.7183477, z: 0.7183477}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2939293768562519898}

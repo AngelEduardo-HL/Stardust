@@ -203,7 +203,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.02, z: 3.192}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.38128, y: 0.38128, z: 0.38128}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5948288266553674280}
@@ -432,15 +432,16 @@ MonoBehaviour:
   aimController: {fileID: 147380979097820513}
   firePoint: {fileID: 1932360342994804737}
   projectilePrefab: {fileID: 737002950824676615, guid: ca914d89d2d1b244aa95528ac641574d, type: 3}
-  projectileDamage: 300
+  fireControlMode: 0
+  projectileDamage: 450
   projectileSpeed: 200
   projectileSize: 1
   spawnOffset: 0.1
   projectileHitMask:
     serializedVersion: 2
     m_Bits: 8
-  minimumShotCooldown: 1.19
-  maximumShotCooldown: 1.59
+  minimumShotCooldown: 2.38
+  maximumShotCooldown: 2.63
   initialFireSpread: 0.45
 --- !u!1 &8745686026561041731
 GameObject:

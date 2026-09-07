@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2393399599587687939}
   - component: {fileID: 8885420895928200332}
   - component: {fileID: 5480471049137809541}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: MeshesraiderWings1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 5333152138284767067}
   - component: {fileID: 1791611338425687941}
   - component: {fileID: 5327849156506659390}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: MeshesraiderNeon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,13 +190,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3172410290282705333}
   - component: {fileID: 3626798388661796428}
-  - component: {fileID: 2695421914254280562}
-  - component: {fileID: 2585132043899938443}
-  - component: {fileID: 5391653177306848062}
-  - component: {fileID: 3101043597010770340}
   - component: {fileID: 8643762959037242310}
-  m_Layer: 8
-  m_Name: PlayerShipRider
+  - component: {fileID: 525863798147802124}
+  - component: {fileID: 2396983448148950895}
+  m_Layer: 9
+  m_Name: AllyRider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +209,7 @@ Transform:
   m_GameObject: {fileID: 1990422137441953363}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.75646, y: 0, z: -1.01715}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -242,7 +240,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 640
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -250,83 +248,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &2695421914254280562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990422137441953363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf0c9db26a527dd44b5441a27f64c7ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerShipController
-  maximumForwardSpeed: 16
-  timeToMaximumForwardSpeed: 3
-  forwardBrakeTime: 2
-  maximumReverseSpeed: 6
-  timeToMaximumReverseSpeed: 2
-  reverseStopTime: 0.75
-  maximumVerticalSpeed: 1
-  verticalAccelerationTime: 1
-  verticalStopTime: 0.5
-  yaw180TurnTime: 25
-  pitch180TurnTime: 25
-  roll360TurnTime: 25
-  currentForwardSpeed: 0
-  currentVerticalSpeed: 0
---- !u!114 &2585132043899938443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990422137441953363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f19f8702ab12b45b92faa7e2b93c06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ThrusterGlowController
-  shipRigidbody: {fileID: 3626798388661796428}
-  thrusterRenderers:
-  - {fileID: 3861719648918451747}
-  maximumSpeed: 16
-  emissionColor: {r: 0, g: 1, b: 1, a: 1}
-  minimumIntensity: 0.2
-  maximumIntensity: 8
-  intensityChangeSpeed: 4
---- !u!114 &5391653177306848062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990422137441953363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4b228f626740eb40ac442d1c9037a03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerShipReferences
-  shipRigidbody: {fileID: 3626798388661796428}
-  cameraPivot: {fileID: 3989721885417650292}
---- !u!114 &3101043597010770340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990422137441953363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b1573f99a3267d478c768895213a1c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerTargetLockController
-  aimCamera: {fileID: 0}
-  enemyTargetMask:
-    serializedVersion: 2
-    m_Bits: 8
-  lockRayDistance: 5000
 --- !u!114 &8643762959037242310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,8 +260,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86708484e315d0c41ad0df396c904e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthController
-  maxHealth: 1750
+  maxHealth: 17000
   currentHealth: 0
+--- !u!114 &525863798147802124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990422137441953363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e745a4be167c874a974202dc96eb656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyShipAI
+  arrivalSpeed: 2000
+  arrivalBrakeStartDistance: 20
+  arrivalPointTolerance: 5
+  maximumForwardSpeed: 16
+  timeToMaximumForwardSpeed: 3
+  forwardBrakeTime: 2
+  yaw180TurnTime: 15
+  hardTurnAngle: 60
+  hardTurnSpeedMultiplier: 0.55
+  avoidancePadding: 10
+  orbitLookAheadDistance: 90
+  orbitRadialStrength: 2
+  orbitWhenTurnExceeds: 65
+  orbitExitAngle: 30
+  destinationPadding: 5
+  approachStopDistance: 8
+  currentState: 0
+  currentForwardSpeed: 0
+  arrivalPoint: {x: 0, y: 0, z: 0}
+  finalApproachPoint: {x: 0, y: 0, z: 0}
+  steeringPoint: {x: 0, y: 0, z: 0}
+  orbiting: 0
+  orbitDirection: 0
+  orbitRadius: 0
+--- !u!114 &2396983448148950895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990422137441953363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db112c04dbcfa0428ad7065db5de0ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCombatController
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 8
+  searchRadius: 400
+  targetRefreshInterval: 0.5
+  canAttackDuringApproach: 1
+  currentTarget: {fileID: 0}
 --- !u!1 &3679119303594135979
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +328,7 @@ GameObject:
   - component: {fileID: 7949370826007352540}
   - component: {fileID: 6130111148130999068}
   - component: {fileID: 3028266251913351924}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: MeshesraiderDarkgrey1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5916782340702832188}
   - component: {fileID: 8738992505783034476}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +452,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 896
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -493,7 +469,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6946600202269855428}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Casco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2661410477397221949}
   - component: {fileID: 2833201254556133565}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Collider (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +545,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 896
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -587,7 +563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9213799008218922871}
   - component: {fileID: 2155246086882788339}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Collider (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,7 +598,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 896
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -639,7 +615,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 958179764343734958}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Rider Corvette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5795107820132653848}
   - component: {fileID: 284056679564100812}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Collider (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,7 +684,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 896
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -725,7 +701,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3989721885417650292}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Camera Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +734,7 @@ GameObject:
   - component: {fileID: 1687254500218809324}
   - component: {fileID: 3235822855465438461}
   - component: {fileID: 8474689920608601856}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: MeshesraiderEngines1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +824,7 @@ GameObject:
   - component: {fileID: 2134131479124023008}
   - component: {fileID: 6829335971946115683}
   - component: {fileID: 7016848528639315413}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: MeshesraiderDarkergrey1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -938,7 +914,7 @@ GameObject:
   - component: {fileID: 7422434428130473252}
   - component: {fileID: 5447638679927860449}
   - component: {fileID: 6118681126262047292}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: MeshesraiderBlack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,7 +1002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1788981504316440940}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Turrets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1067,7 +1043,7 @@ GameObject:
   - component: {fileID: 1200439965263202651}
   - component: {fileID: 5237539065013887479}
   - component: {fileID: 9048518674788249075}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: MeshesraiderHull1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1157,7 +1133,7 @@ GameObject:
   - component: {fileID: 7720179409333404798}
   - component: {fileID: 2625398866237496293}
   - component: {fileID: 2930339148289978161}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: MeshesraiderBridgeblack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1247,7 +1223,7 @@ GameObject:
   - component: {fileID: 5665155225792253456}
   - component: {fileID: 87063582953933592}
   - component: {fileID: 3861719648918451747}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Engineglow1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1334,9 +1310,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1788981504316440940}
     m_Modifications:
+    - target: {fileID: -8216654756558644282, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: fireControlMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8216654756558644282, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: projectileHitMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 130141548119787987, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 606701829647474990, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1380,15 +1364,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1058955345895581410, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1401829623659151736, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5280535275029913244, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Name
@@ -1396,19 +1380,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7330631145970237796, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7543198591446281679, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7945232630171596881, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1428,25 +1420,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1788981504316440940}
     m_Modifications:
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 796146922335825463, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3164441443280469605, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3199014960071887894, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3871331165120609546, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4184579076602498650, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4496668437921644658, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_LocalScale.x
@@ -1510,7 +1510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6434792473485798169, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612353834462825858, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: fireControlMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6612353834462825858, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: maximumShotCooldown
@@ -1520,21 +1524,25 @@ PrefabInstance:
       propertyPath: minimumShotCooldown
       value: 5.19
       objectReference: {fileID: 0}
+    - target: {fileID: 6612353834462825858, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: projectileHitMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7308654155634358901, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Name
       value: HeavyTurret (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7308654155634358901, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8320983955827016573, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8742754203098103270, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1554,25 +1562,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1788981504316440940}
     m_Modifications:
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 386795188756987807, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 796146922335825463, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3164441443280469605, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3199014960071887894, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3871331165120609546, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4184579076602498650, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4496668437921644658, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_LocalScale.x
@@ -1636,7 +1652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6434792473485798169, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612353834462825858, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: fireControlMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6612353834462825858, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: maximumShotCooldown
@@ -1646,21 +1666,25 @@ PrefabInstance:
       propertyPath: minimumShotCooldown
       value: 5.32
       objectReference: {fileID: 0}
+    - target: {fileID: 6612353834462825858, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
+      propertyPath: projectileHitMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7308654155634358901, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Name
       value: HeavyTurret
       objectReference: {fileID: 0}
     - target: {fileID: 7308654155634358901, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8320983955827016573, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8742754203098103270, guid: 9d10dfdb69316744a8c3044b8e074dcb, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1680,9 +1704,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1788981504316440940}
     m_Modifications:
+    - target: {fileID: -8216654756558644282, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: fireControlMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8216654756558644282, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: projectileHitMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 130141548119787987, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 606701829647474990, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1726,15 +1758,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1058955345895581410, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1401829623659151736, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5280535275029913244, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Name
@@ -1742,19 +1774,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7330631145970237796, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7543198591446281679, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7945232630171596881, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1774,9 +1814,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1788981504316440940}
     m_Modifications:
+    - target: {fileID: -8216654756558644282, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: fireControlMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8216654756558644282, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: projectileHitMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 130141548119787987, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 606701829647474990, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1820,15 +1868,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1058955345895581410, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1401829623659151736, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5280535275029913244, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Name
@@ -1836,19 +1884,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7330631145970237796, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7543198591446281679, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7945232630171596881, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1868,9 +1924,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1788981504316440940}
     m_Modifications:
+    - target: {fileID: -8216654756558644282, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: fireControlMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8216654756558644282, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: projectileHitMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 130141548119787987, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 606701829647474990, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1914,15 +1978,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1058955345895581410, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1401829623659151736, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5280535275029913244, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Name
@@ -1930,19 +1994,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7330631145970237796, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7543198591446281679, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7945232630171596881, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1962,9 +2034,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1788981504316440940}
     m_Modifications:
+    - target: {fileID: -8216654756558644282, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: fireControlMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8216654756558644282, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: projectileHitMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 130141548119787987, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 606701829647474990, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2008,15 +2088,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1058955345895581410, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1401829623659151736, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5280535275029913244, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Name
@@ -2024,19 +2104,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7330631145970237796, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7543198591446281679, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7945232630171596881, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2056,9 +2144,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1788981504316440940}
     m_Modifications:
+    - target: {fileID: -8216654756558644282, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: fireControlMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8216654756558644282, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: projectileHitMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 130141548119787987, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 606701829647474990, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2102,15 +2198,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1058955345895581410, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1401829623659151736, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5280535275029913244, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Name
@@ -2118,19 +2214,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5586821364963388241, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547337665013921589, guid: 78c973f6c0660404b896e1b702863248, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7330631145970237796, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7543198591446281679, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7945232630171596881, guid: 78c973f6c0660404b896e1b702863248, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
