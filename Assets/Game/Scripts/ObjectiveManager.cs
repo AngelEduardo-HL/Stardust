@@ -3,210 +3,50 @@ using UnityEngine.SceneManagement;
 
 public sealed class ObjectiveManager : MonoBehaviour
 {
-    [Header("Estacion espacial")]
-
-    [SerializeField]
-    private HealthController spaceStation;
-
-
-    [Header("Objetivos enemigos")]
-
-    [SerializeField]
-    private HealthController[] enemyTargets;
-
-    [SerializeField, Min(1)]
-    private int requiredKills = 2;
-
+    [Header("Estacion")]
+    [SerializeField] private HealthController spaceStation;
 
     [Header("Escenas")]
-
-    [SerializeField]
-    private string victorySceneName = "VictoryMenu";
-
-    [SerializeField]
-    private string defeatSceneName = "DefeatMenu";
-
-
-    [Header("Debug")]
-
-    [SerializeField]
-    private int currentKills;
-
+    [SerializeField] private string victorySceneName = "VictoryMenu";
+    [SerializeField] private string defeatSceneName = "DefeatMenu";
 
     private bool gameEnded;
 
-
     private void Start()
-    {
-        SubscribeToStation();
-
-        SubscribeToEnemies();
-    }
-
-
-    private void SubscribeToStation()
     {
         if (spaceStation == null)
         {
-            Debug.LogError(
-                "PrototypeObjectiveManager: " +
-                "no hay estacion espacial asignada.",
-                this
-            );
-
+            Debug.LogError("ObjectiveManager: no hay estacion asignada.", this);
             return;
         }
 
-
-        spaceStation.Died +=
-            OnStationDestroyed;
+        spaceStation.Died += OnStationDestroyed;
     }
 
-
-    private void SubscribeToEnemies()
+    private void OnStationDestroyed(HealthController station)
     {
-        if (enemyTargets == null)
-        {
-            return;
-        }
-
-
-        foreach (
-            HealthController enemy
-            in enemyTargets
-        )
-        {
-            if (enemy == null)
-            {
-                continue;
-            }
-
-
-            enemy.Died +=
-                OnEnemyDestroyed;
-        }
+        TriggerDefeat();
     }
 
-
-    private void OnEnemyDestroyed(
-        HealthController enemy
-    )
+    public void TriggerVictory()
     {
-        if (gameEnded)
-        {
-            return;
-        }
-
-
-        // Evitamos contar nuevamente
-        // el mismo enemigo.
-        enemy.Died -=
-            OnEnemyDestroyed;
-
-
-        currentKills++;
-
-
-        Debug.Log(
-            $"Objetivo destruido. " +
-            $"{currentKills}/{requiredKills}",
-            this
-        );
-
-
-        if (currentKills >=
-            requiredKills)
-        {
-            Victory();
-        }
-    }
-
-
-    private void OnStationDestroyed(
-        HealthController station
-    )
-    {
-        if (gameEnded)
-        {
-            return;
-        }
-
-
-        Defeat();
-    }
-
-
-    private void Victory()
-    {
-        if (gameEnded)
-        {
-            return;
-        }
-
+        if (gameEnded) return;
 
         gameEnded = true;
-
-
-        Debug.Log(
-            "VICTORIA",
-            this
-        );
-
-
-        SceneManager.LoadScene(
-            victorySceneName
-        );
+        SceneManager.LoadScene(victorySceneName);
     }
 
-
-    private void Defeat()
+    public void TriggerDefeat()
     {
-        if (gameEnded)
-        {
-            return;
-        }
-
+        if (gameEnded) return;
 
         gameEnded = true;
-
-
-        Debug.Log(
-            "DERROTA",
-            this
-        );
-
-
-        SceneManager.LoadScene(
-            defeatSceneName
-        );
+        SceneManager.LoadScene(defeatSceneName);
     }
-
 
     private void OnDestroy()
     {
         if (spaceStation != null)
-        {
-            spaceStation.Died -=
-                OnStationDestroyed;
-        }
-
-
-        if (enemyTargets == null)
-        {
-            return;
-        }
-
-
-        foreach (
-            HealthController enemy
-            in enemyTargets
-        )
-        {
-            if (enemy != null)
-            {
-                enemy.Died -=
-                    OnEnemyDestroyed;
-            }
-        }
+            spaceStation.Died -= OnStationDestroyed;
     }
 }

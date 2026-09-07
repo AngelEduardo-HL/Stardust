@@ -30,8 +30,12 @@ public sealed class AllySpawnManager : MonoBehaviour
     [SerializeField, Min(0f)] private float minimumApproachRadius = 40f;
     [SerializeField, Min(0f)] private float maximumApproachRadius = 70f;
 
+    private bool inputEnabled = true;
+
     private void Update()
     {
+        if (!inputEnabled || Keyboard.current == null) return;
+
         if (Keyboard.current == null) return;
 
         if (Keyboard.current.digit1Key.wasPressedThisFrame)
@@ -42,6 +46,10 @@ public sealed class AllySpawnManager : MonoBehaviour
 
         if (Keyboard.current.digit3Key.wasPressedThisFrame)
             TryBuyAlly(dreadnoughtPrefab, dreadnoughtCost);
+    }
+    public void SetInputEnabled(bool value)
+    {
+        inputEnabled = value;
     }
 
     public EnemyShipAI SpawnAlly(EnemyShipAI allyPrefab)

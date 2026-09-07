@@ -15,7 +15,7 @@ public sealed class WaveManager : MonoBehaviour
     [Header("Spawn")]
     [SerializeField] private EnemySpawnManager enemySpawnManager;
 
-    [Header("Prefabs enemigos")]
+    [Header("Prefabs")]
     [SerializeField] private EnemyShipAI corvettePrefab;
     [SerializeField] private EnemyShipAI cruiserPrefab;
     [SerializeField] private EnemyShipAI dreadnoughtPrefab;
@@ -24,12 +24,13 @@ public sealed class WaveManager : MonoBehaviour
     [SerializeField] private WaveDefinition[] waves;
 
     [Header("Tiempos")]
-    [SerializeField, Min(0.1f)] private float spawnInterval = 1.5f;
-    [SerializeField, Min(0f)] private float timeBetweenWaves = 8f;
+    [SerializeField, Min(0.1f)] private float spawnInterval = 2f;
+    [SerializeField, Min(0f)] private float timeBetweenWaves = 10f;
+    [SerializeField, Min(0f)] private float firstWaveDelay = 5f;
 
-    [Header("Inicio")]
-    [SerializeField] private bool startAutomatically = true;
-    [SerializeField, Min(0f)] private float firstWaveDelay = 3f;
+    [Header("Sistemas")]
+    [SerializeField] private ObjectiveManager objectiveManager;
+    [SerializeField] private WaveCountdownHUD countdownHUD;
 
     [Header("Debug")]
     [SerializeField] private int currentWave;
@@ -44,60 +45,68 @@ public sealed class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        if (startAutomatically)
-            StartCoroutine(StartGame());
+        StartCoroutine(GameLoop());
     }
 
-    private IEnumerator StartGame()
+    private IEnumerator GameLoop()
     {
-        yield return new WaitForSeconds(firstWaveDelay);
+        if (firstWaveDelay > 0f)
+            yield return StartCoroutine(RunIntermission(firstWaveDelay, 1));
 
-        currentWave = 0;
-        StartCoroutine(RunNextWave());
+        for (int i = 0; i < waves.Length; i++)
+        {
+            currentWave = i + 1;
+            waveRunning = true;
+
+            countdownHUD?.HideCountdown();
+
+            Debug.Log($"OLEADA {currentWave}/{waves.Length}");
+
+            List<EnemyShipAI> spawnList = BuildSpawnList(waves[i]);
+            Shuffle(spawnList);
+
+            foreach (EnemyShipAI prefab in spawnList)
+            {
+                SpawnTrackedEnemy(prefab);
+                yield return new WaitForSeconds(spawnInterval);
+            }
+
+            while (enemiesAlive > 0)
+                yield return null;
+
+            waveRunning = false;
+
+            Debug.Log($"Oleada {currentWave} completada.");
+
+            if (currentWave >= waves.Length)
+            {
+                countdownHUD?.HideCountdown();
+
+                if (objectiveManager != null)
+                    objectiveManager.TriggerVictory();
+                else
+                    Debug.LogError("WaveManager: falta ObjectiveManager.", this);
+
+                yield break;
+            }
+
+            yield return StartCoroutine(RunIntermission(timeBetweenWaves, currentWave + 1));
+        }
     }
 
-    private IEnumerator RunNextWave()
+    private IEnumerator RunIntermission(float duration, int nextWave)
     {
-        if (currentWave >= waves.Length)
+        float remaining = duration;
+
+        while (remaining > 0f)
         {
-            Victory();
-            yield break;
-        }
+            countdownHUD?.ShowCountdown(nextWave, remaining);
 
-        waveRunning = true;
-
-        WaveDefinition wave = waves[currentWave];
-
-        Debug.Log($"Iniciando oleada {currentWave + 1}/{waves.Length}");
-
-        List<EnemyShipAI> spawnList = BuildSpawnList(wave);
-
-        Shuffle(spawnList);
-
-        foreach (EnemyShipAI prefab in spawnList)
-        {
-            SpawnTrackedEnemy(prefab);
-            yield return new WaitForSeconds(spawnInterval);
-        }
-
-        while (enemiesAlive > 0)
+            remaining -= Time.deltaTime;
             yield return null;
-
-        waveRunning = false;
-
-        Debug.Log($"Oleada {currentWave + 1} completada.");
-
-        currentWave++;
-
-        if (currentWave >= waves.Length)
-        {
-            Victory();
-            yield break;
         }
 
-        yield return new WaitForSeconds(timeBetweenWaves);
-
-        StartCoroutine(RunNextWave());
+        countdownHUD?.HideCountdown();
     }
 
     private List<EnemyShipAI> BuildSpawnList(WaveDefinition wave)
@@ -119,7 +128,6 @@ public sealed class WaveManager : MonoBehaviour
     private void SpawnTrackedEnemy(EnemyShipAI prefab)
     {
         EnemyShipAI enemy = enemySpawnManager.SpawnEnemy(prefab);
-
         if (enemy == null) return;
 
         HealthController health = enemy.GetComponent<HealthController>();
@@ -139,7 +147,6 @@ public sealed class WaveManager : MonoBehaviour
     private void OnEnemyDied(HealthController health)
     {
         health.Died -= OnEnemyDied;
-
         trackedEnemies.Remove(health);
 
         enemiesAlive = Mathf.Max(0, enemiesAlive - 1);
@@ -157,10 +164,12 @@ public sealed class WaveManager : MonoBehaviour
         }
     }
 
-    private void Victory()
+    private void OnDestroy()
     {
-        waveRunning = false;
-
-        Debug.Log("LAS 12 OLEADAS HAN SIDO COMPLETADAS.");
+        foreach (HealthController health in trackedEnemies)
+        {
+            if (health != null)
+                health.Died -= OnEnemyDied;
+        }
     }
 }
